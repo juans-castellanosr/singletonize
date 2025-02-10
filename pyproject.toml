@@ -1,0 +1,34 @@
+[project]
+name = "singletonize"
+version = "1.1.2"
+description = "A lightweight Python library for implementing the Singleton pattern efficiently."
+keywords = ["singleton", "design-patterns", "singletonize", "python", "oop", "metaclass", "singleton-pattern", "thread-safe", "abstract", "instance-management"]
+license = "MIT"
+license-files = ["LICENSE"]
+urls = { "GitHub" = "https://github.com/juans-castellanosr/singletonize", "Documentation" = "https://github.com/juans-castellanosr/singletonize#readme", "PyPi" = "https://pypi.org/project/singletonize/", "Issues" = "https://github.com/juans-castellanosr/singletonize/issues" }
+authors = [
+    { name = "Juan Sebastian Castellanos Rivillas", email = "59780501+juans-castellanosr@users.noreply.github.com" },
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Object Brokering",
+    "Topic :: Utilities",
+    "Typing :: Typed"
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+pytest-benchmark = "^5.1.0"
+pytest-cov = "^6.0.0"
