@@ -1,0 +1,29 @@
+[project]
+name = "singletonize"
+version = "0.1.0"
+description = ""
+keywords = []
+license = "MIT"
+urls = { "GitHub" = "https://github.com/juans-castellanosr/singletonize" }
+authors = [
+    { name = "Juan Sebastian Castellanos Rivillas", email = "59780501+juans-castellanosr@users.noreply.github.com" },
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+pytest-benchmark = "^5.1.0"
+pytest-cov = "^6.0.0"
