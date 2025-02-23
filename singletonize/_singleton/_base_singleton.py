@@ -5,7 +5,7 @@ from typing import Type, TypeVar, Dict, Any
 
 _T = TypeVar('_T', bound='BaseSingleton')
 
-class BaseSingleton():
+class BaseSingleton:
   """Abstract base class containing common Singleton functionality."""
   __slots__ = ()
 
@@ -24,7 +24,10 @@ class BaseSingleton():
     if getattr(self, '_updating', False):
       super().__setattr__(key, value)
     elif hasattr(self, key):
-      raise AttributeError(f'Cannot set attribute {key} on singleton instance')
+      raise AttributeError(
+        f"Cannot set attribute '{key}' on immutable singleton instance. "
+        f"Use update_instance() to modify existing attributes."
+      )
     else:
       super().__setattr__(key, value)
 
@@ -97,9 +100,14 @@ class BaseSingleton():
     :param kwargs: Key-value pairs of attributes to update
     :return: The updated singleton instance
     """
-    instance = cls.get_instance()
-    instance._updating = True
+    instance = cls.get_instance_or_none()
+    if instance is None:
+      raise ValueError(
+        f"Cannot update non-existent instance of {cls.__name__}. "
+        f"Create an instance first with get_instance()."
+      )
 
+    instance._updating = True
     try:
       for key, value in kwargs.items():
         setattr(instance, key, value)
@@ -116,4 +124,8 @@ class BaseSingleton():
     :return Dict[str, Any]: Dictionary of instance attributes
     """
     instance = cls.get_instance_or_none()
-    return {k: v for k, v in vars(instance).items() if not k.startswith('_')} if instance else {}
+
+    if not instance:
+      return {}
+
+    return {k: v for k, v in vars(instance).items() if not k.startswith('_')}

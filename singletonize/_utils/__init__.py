@@ -1,3 +1,4 @@
-__all__ = ['InstanceCleaner']
+__all__ = ['Cleaner', 'LeanBFS']
 
-from .instance_cleaner import InstanceCleaner
+from .lean_bfs import LeanBFS
+from .cleaner import Cleaner

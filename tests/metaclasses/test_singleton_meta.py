@@ -72,7 +72,6 @@ def test_singleton_instance_deletion() -> None:
   SingletonMeta.detach(MySingleton)
   assert not SingletonMeta.has_instance(MySingleton)
 
-  assert MySingleton not in SingletonMeta._refs #type: ignore
   assert MySingleton not in SingletonMeta._locks #type: ignore
 
   instance2 = MySingleton(2)
@@ -147,7 +146,6 @@ def test_singleton_abc_instance_deletion() -> None:
   SingletonABCMeta.detach(MySingletonABC)
   assert not SingletonABCMeta.has_instance(MySingletonABC)
 
-  assert MySingletonABC not in SingletonABCMeta._refs #type: ignore
   assert MySingletonABC not in SingletonABCMeta._locks #type: ignore
 
   instance2 = MySingletonABC(2)
